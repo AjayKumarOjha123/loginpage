@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="google-signin-client_id" content="YOUR_CLIENT_ID.apps.googleusercontent.com">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="mylogo">
+        <img src="sannus.png" >
+        <h2>Sing In To Your Account</h2>
+    </div>
+
+        <div class="box-item">
+            <label for="email"><b> Email</b> </label>
+            <input type="email" name="email" id="email" placeholder="Enter your email">
+
+            <label for="password"><b>Password</b> </label>
+            <input type="password" name="password" id="password" placeholder="Enter your password">
+
+            <label>
+                <input type="checkbox" name="checkbox" id="check">Remember me
+            </label>
+
+            <button type="submit">Login</button>
+<br><br><br>
+
+<div id="my-signin2"></div>
+<script>
+  function onSuccess(googleUser) {
+    console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
+  }
+  function onFailure(error) {
+    console.log(error);
+  }
+  function renderButton() {
+    gapi.signin2.render('my-signin2', {
+      'scope': 'profile email',
+      'width': 422,
+      'height': 50,
+      'longtitle': true,
+      'theme': 'dark',
+      'onsuccess': onSuccess,
+      'onfailure': onFailure
+    });
+  }
+</script>
+
+<script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+    </div>
+    </div>
+</body>
+</html>
